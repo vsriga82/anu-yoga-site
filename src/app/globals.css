@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-sage-50: #f4f6f1;
+  --color-sage-100: #e2e8db;
+  --color-sage-500: #9caf88;
+  --color-sage-600: #7b8e67;
+  --color-sage-700: #5c6c4c;
+  
+  --color-beige: #fbf9f6;
+  --color-terracotta: #e2725b;
+  --color-terracotta-hover: #c95e49;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.animate-fade-in {
+  animation: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+:root {
+  --background: #fbf9f6;
+  --foreground: #1e293b;
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
