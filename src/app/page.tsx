@@ -104,7 +104,7 @@ export default function Home() {
                   <path d="M50 20C60 10 70 15 70 25C70 35 60 30 50 20Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h3 className="text-xl font-serif text-slate-800 mb-4">PCOS Management</h3>
+              <h3 className="text-xl font-serif text-slate-800 mb-4">PCOD Management</h3>
               <p className="text-slate-600 leading-relaxed">Hormone balancing and stress reduction utilizing targeted breathwork and pelvic opening sequences.</p>
             </div>
             {/* Card 3 */}
