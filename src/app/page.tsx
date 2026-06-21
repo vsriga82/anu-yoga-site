@@ -1,5 +1,6 @@
 import { Leaf, Heart, Wind, Droplets, ArrowRight, Star, CalendarHeart, Sparkles, CheckCircle2 } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import CalendlyWidget from "@/components/CalendlyWidget";
 
 export default function Home() {
   return (
@@ -242,14 +243,8 @@ export default function Home() {
                 <p className="text-slate-600 mt-2">Select a time that works for you.</p>
               </div>
               
-              {/* Placeholder for Booking Widget */}
-              <div 
-                id="calendly-booking-widget" 
-                className="w-full h-[400px] bg-white rounded-2xl border border-dashed border-sage-300 flex flex-col items-center justify-center text-sage-500 p-6 text-center"
-              >
-                <p className="font-medium mb-2">Booking Widget Placeholder</p>
-                <p className="text-sm">Drop your Calendly or Typeform embed code here.</p>
-              </div>
+              {/* Calendly Booking Widget */}
+              <CalendlyWidget />
             </div>
           </div>
         </div>
