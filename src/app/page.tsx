@@ -1,22 +1,13 @@
-import { Leaf, ArrowRight, CalendarHeart, Sparkles, CheckCircle2 } from "lucide-react";
+import { Leaf, ArrowRight, CalendarHeart, Sparkles, CheckCircle2, PenLine } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import CalendlyWidget from "@/components/CalendlyWidget";
+import NavBar from "@/components/NavBar";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-beige/80 backdrop-blur-md border-b border-sage-100">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 text-sage-700">
-            <Leaf className="w-6 h-6" />
-            <span className="font-serif font-semibold text-xl tracking-wide">Anu Mindfulness Yoga</span>
-          </div>
-          <a href="#booking" className="text-sm font-medium text-sage-700 hover:text-sage-600 transition-colors">
-            Book Consultation
-          </a>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#fbf9f6]">
@@ -235,22 +226,29 @@ export default function Home() {
       {/* About Anuradha */}
       <section id="about" className="py-24 bg-beige/20 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-            <div className="lg:col-start-1 lg:col-end-6 lg:row-start-1 relative h-[450px] lg:h-[650px] rounded-3xl overflow-hidden shadow-2xl shadow-sage-900/20 z-10 mb-8 lg:mb-0">
-              <img
-                src="/anuradha-photo-v4.jpg"
-                alt="Anuradha Sriganesh, Yoga Therapist"
-                className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
-              />
+
+          {/* Row 1: Photo + Bio, top-aligned */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start mb-12">
+
+            {/* Photo — fixed 4:5 portrait, ~400px wide on desktop */}
+            <div className="w-full max-w-[360px] mx-auto lg:mx-0 lg:w-[400px] lg:shrink-0">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-sage-900/20">
+                <img
+                  src="/anuradha-photo-v4.jpg"
+                  alt="Anuradha Sriganesh, Yoga Therapist"
+                  className="w-full h-full object-cover object-[center_20%]"
+                />
+              </div>
             </div>
 
-            <div className="lg:col-start-5 lg:col-end-13 lg:row-start-1 bg-white p-8 sm:p-12 lg:py-16 lg:pr-16 lg:pl-32 rounded-3xl shadow-xl shadow-sage-900/5 z-0">
+            {/* Bio */}
+            <div className="flex-1 bg-white p-8 sm:p-12 rounded-3xl shadow-xl shadow-sage-900/5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-700 text-sm font-medium mb-6">
                 <Leaf className="w-4 h-4" />
                 <span>Meet Your Therapist</span>
               </div>
               <h2 className="text-4xl font-serif text-slate-800 mb-6">Hi, I'm Anuradha Sriganesh.</h2>
-              <div className="space-y-4 text-lg text-slate-600 leading-relaxed mb-8">
+              <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
                 <p>
                   I'm a Yoga Instructor and Therapist with a focus on women's holistic health and the care of chronic lifestyle conditions. My work combines the mindfulness of the <span className="italic">Sri Sri</span> lineage with the therapeutic protocols of <span className="italic">Shiv Darshan</span> — a foundation built on safe, alignment-focused movement and breath.
                 </p>
@@ -261,25 +259,28 @@ export default function Home() {
                   I work both one-to-one and in small, intentional groups — in person and remotely with clients around the world. Whichever form we choose, the practice is designed around real people and real needs, never a fixed class or a standard routine.
                 </p>
               </div>
-              <div className="space-y-3">
-                <h4 className="font-medium text-slate-800 uppercase tracking-wider text-sm mb-4">Education & Certifications</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0" />
-                    <span>Teacher Training Course 1 (TTC-1) in Yoga Therapy — Shiv Darshan Yoga Vidyalaya</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0" />
-                    <span>200-Hour Yoga Teacher Training (RYT-200) — Sri Sri School of Yoga</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0" />
-                    <span>Focus areas: women's wellness, chronic pain, and adaptive movement for every stage of life</span>
-                  </li>
-                </ul>
+            </div>
+          </div>
+
+          {/* Row 2: Education & Certifications — full-width 3-card strip */}
+          <div>
+            <h4 className="font-medium text-slate-800 uppercase tracking-wider text-sm mb-6">Education & Certifications</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
+                <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
+                <span className="text-slate-700">Teacher Training Course 1 (TTC-1) in Yoga Therapy — Shiv Darshan Yoga Vidyalaya</span>
+              </div>
+              <div className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
+                <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
+                <span className="text-slate-700">200-Hour Yoga Teacher Training (RYT-200) — Sri Sri School of Yoga</span>
+              </div>
+              <div className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
+                <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
+                <span className="text-slate-700">Focus areas: women's wellness, chronic pain, and adaptive movement for every stage of life</span>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -294,8 +295,29 @@ export default function Home() {
         <TestimonialCarousel testimonials={testimonials} />
       </section>
 
+      {/* Notes from the mat — coming soon */}
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-700 text-sm font-medium mb-6">
+            <PenLine className="w-4 h-4" />
+            <span>Reflections</span>
+          </div>
+          <h2 className="text-4xl font-serif text-slate-800 mb-6">Notes from the mat</h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-8">
+            Coming soon. Every person who comes to me brings a story — of pain quietly carried, of a body learning to trust itself again, of small returns to ease. I'm beginning to pen some of these reflections here: gentle, anonymous, and shared with care. Not instruction, but the things this work keeps teaching me.
+          </p>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sage-700 font-medium hover:text-sage-600 transition-colors text-sm"
+          >
+            Visit the notes
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
       {/* Begin With a Conversation */}
-      <section id="booking" className="py-24 bg-white">
+      <section id="booking" className="py-24 bg-beige/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="lg:pt-8">
