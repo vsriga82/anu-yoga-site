@@ -227,38 +227,41 @@ export default function Home() {
       <section id="about" className="py-24 bg-beige/20 relative">
         <div className="max-w-7xl mx-auto px-6">
 
-          {/* Row 1: Photo + Bio, top-aligned */}
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start mb-12">
+          {/* Row 1: Single card — photo + bio unified */}
+          <div className="bg-white rounded-3xl shadow-xl shadow-sage-900/5 p-8 sm:p-10 mb-12">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
 
-            {/* Photo — fixed 4:5 portrait, ~400px wide on desktop */}
-            <div className="w-full max-w-[360px] mx-auto lg:mx-0 lg:w-[400px] lg:shrink-0">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-sage-900/20">
-                <img
-                  src="/anuradha-photo-v4.jpg"
-                  alt="Anuradha Sriganesh, Yoga Therapist"
-                  className="w-full h-full object-cover object-[center_20%]"
-                />
+              {/* Photo inside the card */}
+              <div className="w-full max-w-[300px] mx-auto lg:mx-0 lg:w-[300px] lg:shrink-0">
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-lg shadow-sage-900/15">
+                  <img
+                    src="/anuradha-photo-v4.jpg"
+                    alt="Anuradha Sriganesh, Yoga Therapist"
+                    className="w-full h-full object-cover object-[center_20%]"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Bio */}
-            <div className="flex-1 bg-white p-8 sm:p-12 rounded-3xl shadow-xl shadow-sage-900/5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-700 text-sm font-medium mb-6">
-                <Leaf className="w-4 h-4" />
-                <span>Meet Your Therapist</span>
+              {/* Bio */}
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-700 text-sm font-medium mb-6">
+                  <Leaf className="w-4 h-4" />
+                  <span>Meet Your Therapist</span>
+                </div>
+                <h2 className="text-4xl font-serif text-slate-800 mb-6">Hi, I'm Anuradha Sriganesh.</h2>
+                <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
+                  <p>
+                    I'm a Yoga Instructor and Therapist with a focus on women's holistic health and the care of chronic lifestyle conditions. My work combines the mindfulness of the <span className="italic">Sri Sri</span> lineage with the therapeutic protocols of <span className="italic">Shiv Darshan</span> — a foundation built on safe, alignment-focused movement and breath.
+                  </p>
+                  <p>
+                    Many people come to me first simply to talk — to be heard by someone who isn't rushing them toward a solution. Over time I've come to believe that's where healing truly starts: in feeling understood. So every practice I design begins with listening.
+                  </p>
+                  <p>
+                    I work both one-to-one and in small, intentional groups — in person and remotely with clients around the world. Whichever form we choose, the practice is designed around real people and real needs, never a fixed class or a standard routine.
+                  </p>
+                </div>
               </div>
-              <h2 className="text-4xl font-serif text-slate-800 mb-6">Hi, I'm Anuradha Sriganesh.</h2>
-              <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
-                <p>
-                  I'm a Yoga Instructor and Therapist with a focus on women's holistic health and the care of chronic lifestyle conditions. My work combines the mindfulness of the <span className="italic">Sri Sri</span> lineage with the therapeutic protocols of <span className="italic">Shiv Darshan</span> — a foundation built on safe, alignment-focused movement and breath.
-                </p>
-                <p>
-                  Many people come to me first simply to talk — to be heard by someone who isn't rushing them toward a solution. Over time I've come to believe that's where healing truly starts: in feeling understood. So every practice I design begins with listening.
-                </p>
-                <p>
-                  I work both one-to-one and in small, intentional groups — in person and remotely with clients around the world. Whichever form we choose, the practice is designed around real people and real needs, never a fixed class or a standard routine.
-                </p>
-              </div>
+
             </div>
           </div>
 
