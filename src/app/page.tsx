@@ -10,7 +10,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2 text-sage-700">
             <Leaf className="w-6 h-6" />
-            <span className="font-serif font-semibold text-xl tracking-wide">Anuradha Yoga</span>
+            <span className="font-serif font-semibold text-xl tracking-wide">Anu Mindfulness Yoga</span>
           </div>
           <a href="#booking" className="text-sm font-medium text-sage-700 hover:text-sage-600 transition-colors">
             Book Consultation
@@ -32,7 +32,7 @@ export default function Home() {
               <span>Specialized Therapeutic Yoga</span>
             </div>
             <h1 className="text-5xl lg:text-7xl font-serif text-slate-800 leading-[1.1] mb-6 opacity-0 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Restorative, Therapeutic Yoga for <span className="text-sage-600 italic">Deep Healing.</span>
+              Personalized, Therapeutic Yoga for <span className="text-sage-600 italic">Deep Healing.</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 opacity-0 animate-fade-in" style={{ animationDelay: "300ms" }}>
               A practice that begins by listening. Gentle, personalized support for hormonal health and chronic conditions — no prior yoga experience required.
@@ -226,7 +226,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-slate-800 mb-4">Stress & Deep Rest</h3>
-              <p className="text-slate-600 leading-relaxed">Yoga Nidra and meditation for those who simply need to slow down, release, and be held in a calm, unhurried space.</p>
+              <p className="text-slate-600 leading-relaxed">Yoga Nidra and meditation for those who simply need to slow down, release, and be held in a calm, unhurried space — including support for insomnia.</p>
             </div>
           </div>
         </div>
