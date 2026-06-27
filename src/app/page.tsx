@@ -1,12 +1,82 @@
+import type { Metadata } from 'next'
 import { Leaf, ArrowRight, CalendarHeart, Sparkles, CheckCircle2, PenLine } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import NavBar from "@/components/NavBar";
 import Link from "next/link";
+import { featuredPost } from "@/content/featured";
+import { certifications, credentialSummary, showRYT200 } from "@/content/credentials";
+import { testimonials } from "@/content/testimonials";
+
+export const metadata: Metadata = {
+  title: "Therapeutic Yoga in Chennai & Online | Anu Mindfulness Yoga",
+  description:
+    "Personalized therapeutic yoga for hormonal health, chronic pain, diabetes, and more — sessions in Chennai and online worldwide. Book a free consultation with Anuradha Sriganesh.",
+  openGraph: {
+    title: "Anu Mindfulness Yoga | Therapeutic Yoga in Chennai & Online",
+    description:
+      "Personalized therapeutic yoga for hormonal health, chronic pain, and more. Sessions in Chennai and online worldwide.",
+    url: "https://anumindfulnessyoga.com/",
+    images: [{ url: "https://anumindfulnessyoga.com/hero-art.png" }],
+    type: "website",
+  },
+}
+
+const jsonLdCredentials = [
+  {
+    "@type": "EducationalOccupationalCredential",
+    "name": "200-Hour Certificate Course in Yoga",
+    "credentialCategory": "Certificate",
+    "issuedBy": { "@type": "Organization", "name": "Sri Sri School of Yoga (The Art of Living)" },
+    "recognizedBy": { "@type": "Organization", "name": "Indian Yoga Association" },
+  },
+  {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Yoga Therapy Teacher Training (TTC-1, 100 hours)",
+    "credentialCategory": "Certificate",
+    "issuedBy": { "@type": "Organization", "name": "Shiv Darshan Yoga Vidyalaya" },
+  },
+  ...(showRYT200
+    ? [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Registered Yoga Teacher (RYT-200)",
+          "credentialCategory": "Certification",
+          "recognizedBy": { "@type": "Organization", "name": "Yoga Alliance" },
+        },
+      ]
+    : []),
+]
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Anu Mindfulness Yoga",
+  "url": "https://anumindfulnessyoga.com",
+  "image": "https://anumindfulnessyoga.com/hero-art.png",
+  "description":
+    "Personalized therapeutic yoga for hormonal health, chronic pain, and chronic lifestyle conditions — sessions in Chennai and online worldwide.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chennai",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN",
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Anuradha Sriganesh",
+    "jobTitle": "Certified Yoga Teacher & Therapist",
+    "hasCredential": jsonLdCredentials,
+  },
+}
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <NavBar />
 
       {/* Hero Section */}
@@ -26,7 +96,7 @@ export default function Home() {
               Personalized, Therapeutic Yoga for <span className="text-sage-600 italic">Deep Healing.</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 opacity-0 animate-fade-in" style={{ animationDelay: "300ms" }}>
-              A practice that begins by listening. Gentle, personalized support for hormonal health and chronic conditions — no prior yoga experience required.
+              A practice that begins by listening. Gentle, personalized support for hormonal health and chronic conditions — no prior yoga experience required. Available in person in Chennai and online, worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" style={{ animationDelay: "500ms" }}>
               <a href="#booking" className="inline-flex items-center justify-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-all shadow-lg shadow-sage-500/20 hover:shadow-xl hover:-translate-y-0.5">
@@ -43,7 +113,7 @@ export default function Home() {
             <div className="relative h-[450px] lg:h-[650px] w-full flex items-center justify-center overflow-hidden rounded-[2rem] lg:rounded-[3rem] bg-white shadow-2xl shadow-sage-900/15 border border-sage-50/50">
               <img
                 src="/hero-art-v2.png"
-                alt="Abstract watercolor evoking healing and soft energy"
+                alt="Therapeutic yoga in Chennai"
                 className="w-full h-full object-cover scale-[1.1] lg:scale-[1.25] hover:scale-[1.3] transition-transform duration-1000 origin-center"
               />
             </div>
@@ -119,6 +189,19 @@ export default function Home() {
               <p className="text-sm text-sage-700 italic">Not sure which is right for you? We'll find out in our first conversation.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Work from anywhere */}
+      <section className="py-20 bg-sage-700">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl lg:text-4xl font-serif text-white mb-6">Work with me from anywhere.</h2>
+          <p className="text-lg text-sage-100 leading-relaxed mb-4">
+            One-to-one sessions and small groups both run over video — same depth, same personalisation, same unhurried pace as in-person work. There is no difference in what we can explore together; only in how we meet.
+          </p>
+          <p className="text-lg text-sage-100 leading-relaxed">
+            Clients join from across India and around the world. If you have a quiet corner and an internet connection, we can work together. Distance is no barrier to a practice built entirely around you.
+          </p>
         </div>
       </section>
 
@@ -236,7 +319,7 @@ export default function Home() {
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-lg shadow-sage-900/15">
                   <img
                     src="/anuradha-photo-v4.jpg"
-                    alt="Anuradha Sriganesh, Yoga Therapist"
+                    alt="Anuradha Sriganesh, certified yoga teacher and therapist in Chennai"
                     className="w-full h-full object-cover object-[center_20%]"
                   />
                 </div>
@@ -248,7 +331,8 @@ export default function Home() {
                   <Leaf className="w-4 h-4" />
                   <span>Meet Your Therapist</span>
                 </div>
-                <h2 className="text-4xl font-serif text-slate-800 mb-6">Hi, I'm Anuradha Sriganesh.</h2>
+                <h2 className="text-4xl font-serif text-slate-800 mb-3">Hi, I'm Anuradha Sriganesh.</h2>
+                <p className="text-sm font-medium text-sage-600 mb-6">{credentialSummary}</p>
                 <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
                   <p>
                     I'm a Yoga Instructor and Therapist with a focus on women's holistic health and the care of chronic lifestyle conditions. My work combines the mindfulness of the <span className="italic">Sri Sri</span> lineage with the therapeutic protocols of <span className="italic">Shiv Darshan</span> — a foundation built on safe, alignment-focused movement and breath.
@@ -257,7 +341,7 @@ export default function Home() {
                     Many people come to me first simply to talk — to be heard by someone who isn't rushing them toward a solution. Over time I've come to believe that's where healing truly starts: in feeling understood. So every practice I design begins with listening.
                   </p>
                   <p>
-                    I work both one-to-one and in small, intentional groups — in person and remotely with clients around the world. Whichever form we choose, the practice is designed around real people and real needs, never a fixed class or a standard routine.
+                    I work both one-to-one and in small, intentional groups — in person in Chennai and remotely with clients around the world. Whichever form we choose, the practice is designed around real people and real needs, never a fixed class or a standard routine.
                   </p>
                 </div>
               </div>
@@ -265,22 +349,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Row 2: Education & Certifications — full-width 3-card strip */}
+          {/* Row 2: Education & Certifications — full-width strip */}
           <div>
             <h4 className="font-medium text-slate-800 uppercase tracking-wider text-sm mb-6">Education & Certifications</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
-                <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
-                <span className="text-slate-700">Teacher Training Course 1 (TTC-1) in Yoga Therapy — Shiv Darshan Yoga Vidyalaya</span>
-              </div>
-              <div className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
-                <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
-                <span className="text-slate-700">200-Hour Yoga Teacher Training (RYT-200) — Sri Sri School of Yoga</span>
-              </div>
-              <div className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
-                <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
-                <span className="text-slate-700">Focus areas: women's wellness, chronic pain, and adaptive movement for every stage of life</span>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certifications.map((cert, i) => (
+                <div key={i} className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-sage-100 shadow-sm">
+                  <CheckCircle2 className="w-5 h-5 text-sage-600 shrink-0 mt-0.5" />
+                  <span className="text-slate-700">{cert}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -298,7 +376,7 @@ export default function Home() {
         <TestimonialCarousel testimonials={testimonials} />
       </section>
 
-      {/* Notes from the mat — coming soon */}
+      {/* Notes from the mat */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-700 text-sm font-medium mb-6">
@@ -307,15 +385,40 @@ export default function Home() {
           </div>
           <h2 className="text-4xl font-serif text-slate-800 mb-6">Notes from the mat</h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-8">
-            Coming soon. Every person who comes to me brings a story — of pain quietly carried, of a body learning to trust itself again, of small returns to ease. I'm beginning to pen some of these reflections here: gentle, anonymous, and shared with care. Not instruction, but the things this work keeps teaching me.
+            Every person who comes to me brings a story — of pain quietly carried, of a body learning to trust itself again, of small returns to ease. I share some of these reflections here: gentle, anonymous, and offered with care. Not instruction, but the things this work keeps teaching me.
           </p>
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sage-700 font-medium hover:text-sage-600 transition-colors text-sm"
-          >
-            Visit the notes
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+
+          {/* Featured post */}
+          <div className="rounded-3xl border border-sage-100 bg-beige/50 p-8">
+            <p className="text-xs font-medium text-sage-600 uppercase tracking-widest mb-3">Latest note</p>
+            <Link
+              href={`/blog/${featuredPost.slug}`}
+              className="group block mb-4"
+            >
+              <h3 className="text-2xl font-serif text-slate-800 group-hover:text-sage-700 transition-colors">
+                {featuredPost.title}
+              </h3>
+            </Link>
+            <blockquote className="border-l-2 border-sage-300 pl-4 italic text-slate-500 text-lg leading-relaxed mb-4">
+              {featuredPost.pullQuote}
+            </blockquote>
+            <p className="text-slate-600 leading-relaxed mb-6">{featuredPost.description}</p>
+            <div className="flex items-center gap-6">
+              <Link
+                href={`/blog/${featuredPost.slug}`}
+                className="inline-flex items-center gap-2 text-sm font-medium text-sage-700 hover:text-sage-600 transition-colors"
+              >
+                Read this note
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/blog"
+                className="text-sm text-slate-400 hover:text-sage-600 transition-colors"
+              >
+                All notes
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -339,7 +442,13 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 text-center px-6">
-        <p className="mb-3">© {new Date().getFullYear()} Anuradha Yoga Therapy. All rights reserved.</p>
+        <p className="mb-1">© {new Date().getFullYear()} Anu Mindfulness Yoga. All rights reserved.</p>
+        <p className="text-sm text-slate-500 mb-4">
+          Based in Chennai, Tamil Nadu · Available online worldwide ·{' '}
+          <a href="mailto:anumindfulnessyoga@gmail.com" className="hover:text-slate-300 transition-colors">
+            anumindfulnessyoga@gmail.com
+          </a>
+        </p>
         <p className="text-sm text-slate-500 max-w-2xl mx-auto">
           Therapeutic yoga is a complement to, not a replacement for, professional medical care. Please consult your doctor regarding any health condition.
         </p>
@@ -347,31 +456,3 @@ export default function Home() {
     </main>
   );
 }
-
-const testimonials = [
-  {
-    quote: "This guidance has been life-changing. I haven't missed a single period since starting, my health has improved, and I lost 12kg in a sustainable way. She didn't just train me — she helped me heal and rediscover myself.",
-    name: "Hormonal Health Client",
-    outcome: "Restored Cycle & Sustainable Weight Loss"
-  },
-  {
-    quote: "I'd had spur pain in both legs for a year. Now the pain has reduced so much that I can walk fast for an hour every day. I feel more relaxed and at peace.",
-    name: "Chronic Pain & Mobility Client",
-    outcome: "Reduced Pain & Improved Mobility"
-  },
-  {
-    quote: "As someone with asthma, I used to be anxious about any exertion. Her gentle approach to breathing has helped me feel far more confident and at ease.",
-    name: "Breathing & Wellness Client",
-    outcome: "Breathing Confidence & Ease"
-  },
-  {
-    quote: "My fasting blood sugar has been steadier since I began this practice. It's been a wonderful complement to my medical routine.",
-    name: "Metabolic Health Client",
-    outcome: "Steadier Blood Sugar Levels"
-  },
-  {
-    quote: "The intake conversation made me feel truly seen. She understood my full history and built something that felt completely safe for my body.",
-    name: "Senior Client (60+)",
-    outcome: "Safe, Adaptive Movement"
-  }
-];

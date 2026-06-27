@@ -13,8 +13,12 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Anuradha Yoga Therapy | Natural, Therapeutic Yoga",
-  description: "Gentle, accessible, and specialized yoga support for physical and hormonal wellness.",
+  title: {
+    default: "Anu Mindfulness Yoga | Therapeutic Yoga in Chennai & Online",
+    template: "%s | Anu Mindfulness Yoga",
+  },
+  description:
+    "Personalized therapeutic yoga for hormonal health, chronic pain, and more — sessions in Chennai and online worldwide.",
 };
 
 export default function RootLayout({

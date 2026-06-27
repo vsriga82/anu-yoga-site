@@ -60,7 +60,7 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: an
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-800">{t.name}</h4>
-                  <p className="text-sm text-terracotta">{t.outcome}</p>
+                  <p className="text-sm text-terracotta">{t.label}</p>
                 </div>
               </div>
             </div>

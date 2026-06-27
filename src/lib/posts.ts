@@ -9,6 +9,10 @@ export type PostMeta = {
   title: string
   date: string
   excerpt?: string
+  seoTitle?: string
+  seoDescription?: string
+  ogTitle?: string
+  ogDescription?: string
 }
 
 export type Post = PostMeta & { content: string }
@@ -25,6 +29,10 @@ export function getAllPosts(): PostMeta[] {
         title: String(data.title ?? 'Untitled'),
         date: String(data.date ?? ''),
         excerpt: data.excerpt ? String(data.excerpt) : undefined,
+        seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
+        seoDescription: data.seoDescription ? String(data.seoDescription) : undefined,
+        ogTitle: data.ogTitle ? String(data.ogTitle) : undefined,
+        ogDescription: data.ogDescription ? String(data.ogDescription) : undefined,
       }
     })
     .filter(p => p.date)
@@ -40,6 +48,10 @@ export function getPost(slug: string): Post | null {
     title: String(data.title ?? 'Untitled'),
     date: String(data.date ?? ''),
     excerpt: data.excerpt ? String(data.excerpt) : undefined,
+    seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
+    seoDescription: data.seoDescription ? String(data.seoDescription) : undefined,
+    ogTitle: data.ogTitle ? String(data.ogTitle) : undefined,
+    ogDescription: data.ogDescription ? String(data.ogDescription) : undefined,
     content,
   }
 }

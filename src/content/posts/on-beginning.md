@@ -2,6 +2,10 @@
 title: On beginning
 date: 2026-06-20
 excerpt: Most people who come to me say the same thing at the end of their first session — "I didn't know I was holding all of that."
+seoTitle: "On Beginning — Notes from the Mat | Anuradha Yoga Therapy"
+seoDescription: "A reflection on the quiet start of healing — what the body remembers, and why gentle, unhurried yoga therapy works. From Anuradha Yoga Therapy, Chennai & online."
+ogTitle: "On Beginning — Anuradha Yoga Therapy"
+ogDescription: "The real beginning isn't the first posture or breath — it's realising you don't have to carry it alone. A note on gentle, therapeutic yoga."
 ---
 
 Most people who come to me say the same thing at the end of their first session: *"I didn't know I was holding all of that."*

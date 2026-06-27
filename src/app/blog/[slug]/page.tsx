@@ -4,12 +4,35 @@ import NavBar from '@/components/NavBar'
 import { getAllPosts, getPost, formatDate } from '@/lib/posts'
 import { ArrowLeft } from 'lucide-react'
 import { marked } from 'marked'
+import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
   return getAllPosts().map(p => ({ slug: p.slug }))
 }
 
 export const dynamicParams = false
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPost(slug)
+  if (!post) return {}
+
+  return {
+    title: post.seoTitle ?? `${post.title} — Notes from the Mat | Anuradha Yoga Therapy`,
+    description: post.seoDescription ?? post.excerpt,
+    openGraph: {
+      title: post.ogTitle ?? post.title,
+      description: post.ogDescription ?? post.excerpt,
+      type: 'article',
+      url: `https://anumindfulnessyoga.com/blog/${slug}`,
+      images: [{ url: 'https://anumindfulnessyoga.com/hero-art.png' }],
+    },
+  }
+}
 
 export default async function PostPage({
   params,
