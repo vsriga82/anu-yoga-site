@@ -45,8 +45,44 @@ export default async function PostPage({
 
   const html = await marked(post.content)
 
+  const dateISO = new Date(post.date).toISOString().split('T')[0]
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.seoDescription ?? post.excerpt,
+    datePublished: dateISO,
+    dateModified: dateISO,
+    author: {
+      '@type': 'Person',
+      name: 'Anuradha Sriganesh',
+      url: 'https://anumindfulnessyoga.com/#about',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Anu Mindfulness Yoga',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://anumindfulnessyoga.com/hero-art.png',
+      },
+    },
+    image: 'https://anumindfulnessyoga.com/hero-art.png',
+    url: `https://anumindfulnessyoga.com/blog/${post.slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://anumindfulnessyoga.com/blog/${post.slug}`,
+    },
+  }
+
   return (
     <main className="min-h-screen bg-[#fbf9f6]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <NavBar />
 
       <div className="pt-36 pb-24">

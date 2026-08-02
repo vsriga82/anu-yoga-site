@@ -53,7 +53,7 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: an
               <div className="flex text-yellow-400 mb-6 gap-1">
                 {[...Array(5)].map((_, idx) => <Star key={idx} className="w-4 h-4 fill-current" />)}
               </div>
-              <p className="text-slate-700 italic mb-8 leading-relaxed text-lg flex-grow">"{t.quote}"</p>
+              <p className="text-slate-700 italic mb-8 leading-relaxed text-lg flex-grow whitespace-pre-line">"{t.quote}"</p>
               <div className="flex items-center gap-4 mt-auto pt-6 border-t border-sage-50">
                 <div className="w-12 h-12 rounded-full bg-beige flex items-center justify-center text-sage-600 font-serif font-medium text-xl shadow-sm ring-1 ring-sage-100 shrink-0">
                   {t.name[0]}

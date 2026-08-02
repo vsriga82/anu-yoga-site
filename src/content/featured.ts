@@ -8,9 +8,10 @@ export type FeaturedPost = {
 }
 
 export const featuredPost: FeaturedPost = {
-  title: "On Beginning",
-  slug: "on-beginning",
-  pullQuote: '"I didn\'t know I was holding all of that."',
+  title: "Do You Need to Be Flexible to Start Yoga?",
+  slug: "do-you-need-to-be-flexible-to-start-yoga",
+  pullQuote:
+    '"Flexibility is what a practice gives you. It was never what the practice asked for."',
   description:
-    "On the quiet moment a person realises they've been carrying something alone, and that they don't have to anymore.",
+    "No — flexibility is what a practice gives you, not what it asks of you. A gentle answer for anyone who feels too stiff to begin.",
 }

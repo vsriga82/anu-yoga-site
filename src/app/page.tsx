@@ -54,6 +54,9 @@ const jsonLd = {
   "name": "Anu Mindfulness Yoga",
   "url": "https://anumindfulnessyoga.com",
   "image": "https://anumindfulnessyoga.com/hero-art.png",
+  "email": "anumindfulnessyoga@gmail.com",
+  "telephone": "+916385455560",
+  "areaServed": "Worldwide (online) and Chennai, India (in person)",
   "description":
     "Personalized therapeutic yoga for hormonal health, chronic pain, and chronic lifestyle conditions — sessions in Chennai and online worldwide.",
   "address": {
@@ -432,6 +435,18 @@ export default function Home() {
               <p className="text-lg text-slate-600 leading-relaxed">
                 You don't need to decide anything yet. Book a free consultation, and we'll simply talk — about what you're living with, what you hope to feel, and whether this practice is right for you.
               </p>
+              <p className="mt-6 text-sm text-slate-500">
+                Prefer to just ask a question first?{' '}
+                <a
+                  href="https://wa.me/916385455560?text=Hi%20Anuradha%2C%20I%27d%20like%20to%20ask%20about%20therapeutic%20yoga."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Message Anu Mindfulness Yoga on WhatsApp"
+                  className="text-sage-700 hover:text-sage-600 transition-colors font-medium"
+                >
+                  Message on WhatsApp →
+                </a>
+              </p>
             </div>
             <div className="bg-beige/40 p-8 rounded-3xl border border-sage-100 shadow-xl shadow-sage-900/5">
               <CalendlyWidget />
@@ -443,10 +458,25 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 text-center px-6">
         <p className="mb-1">© {new Date().getFullYear()} Anu Mindfulness Yoga. All rights reserved.</p>
-        <p className="text-sm text-slate-500 mb-4">
+        <p className="text-sm text-slate-500 mb-2">
           Based in Chennai, Tamil Nadu · Available online worldwide ·{' '}
           <a href="mailto:anumindfulnessyoga@gmail.com" className="hover:text-slate-300 transition-colors">
             anumindfulnessyoga@gmail.com
+          </a>
+        </p>
+        <p className="text-sm text-slate-500 mb-4">
+          <a href="tel:+916385455560" className="hover:text-slate-300 transition-colors">
+            Call or WhatsApp: +91 63854 55560
+          </a>
+          {' · '}
+          <a
+            href="https://wa.me/916385455560?text=Hi%20Anuradha%2C%20I%27d%20like%20to%20ask%20about%20therapeutic%20yoga."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Message Anu Mindfulness Yoga on WhatsApp"
+            className="hover:text-slate-300 transition-colors"
+          >
+            Message on WhatsApp
           </a>
         </p>
         <p className="text-sm text-slate-500 max-w-2xl mx-auto">
